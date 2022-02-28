@@ -22,8 +22,8 @@ object Form1: TForm1
     OnMouseMove = Image1MouseMove
   end
   object LabeledEdit1: TLabeledEdit
-    Left = 632
-    Top = 296
+    Left = 672
+    Top = 128
     Width = 121
     Height = 21
     EditLabel.Width = 62
@@ -49,5 +49,60 @@ object Form1: TForm1
     Height = 25
     Caption = #1055#1086#1074#1086#1088' '#1087#1086' '#1095#1072#1089
     TabOrder = 2
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 600
+    Top = 88
+    Width = 75
+    Height = 25
+    Caption = #1052#1072#1089#1096#1090#1072#1073' -'
+    TabOrder = 3
+    OnClick = Button3Click
+  end
+  object Button4: TButton
+    Left = 784
+    Top = 88
+    Width = 75
+    Height = 25
+    Caption = #1052#1072#1089#1096#1090#1072#1073' +'
+    TabOrder = 4
+    OnClick = Button4Click
+  end
+  object Button5: TButton
+    Left = 632
+    Top = 304
+    Width = 75
+    Height = 25
+    Caption = #1042#1083#1077#1074#1086
+    TabOrder = 5
+    OnClick = Button5Click
+  end
+  object Button6: TButton
+    Left = 752
+    Top = 304
+    Width = 75
+    Height = 25
+    Caption = #1042#1087#1088#1072#1074#1086
+    TabOrder = 6
+    OnClick = Button6Click
+  end
+  object Button7: TButton
+    Left = 712
+    Top = 336
+    Width = 33
+    Height = 73
+    Caption = #1042#1085#1080#1079
+    TabOrder = 7
+    OnClick = Button7Click
+  end
+  object Button8: TButton
+    Left = 712
+    Top = 224
+    Width = 33
+    Height = 73
+    Caption = #1042#1074#1077#1088#1093
+    TabOrder = 8
+    OnClick = Button8Click
   end
 end

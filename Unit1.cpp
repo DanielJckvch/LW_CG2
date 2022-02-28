@@ -16,6 +16,9 @@ void rotandscale(TImage* Image1, double par, int sw, char a, char b, MyPoint& V)
 MyPoint hexagon[7];
 int x=200;
 int y=200;
+double a_step=10;
+int sc_step=2;
+int mov_step=10;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -65,7 +68,7 @@ v1[2]=1;
 int v2[3]={0, 0, 1};
 
 int i, j, k;
-for(k=1; k<8; k++)
+for(k=2; k<8; k++)
 {
 for (i = 0;i < 3;i++)
 {
@@ -82,19 +85,14 @@ v1[1]=v2[1];
 hexagon[k].set_x(v2[0]);
 hexagon[k].set_y(v2[1]);
 }
-for(k=1; k<8; k++)
-{
-hexagon[k].set_x(hexagon[k].get_x()+hexagon[0].get_x());
-hexagon[k].set_y(hexagon[k].get_y()+hexagon[0].get_y());
-}
 for(k=1; k<7; k++)
 {
-Image1->Canvas->MoveTo(hexagon[k].get_x(),hexagon[k].get_y());
-Image1->Canvas->LineTo(hexagon[k+1].get_x(),hexagon[k+1].get_y());
+Image1->Canvas->MoveTo(hexagon[k].get_x()+hexagon[0].get_x(),hexagon[k].get_y()+hexagon[0].get_y());
+Image1->Canvas->LineTo(hexagon[k+1].get_x()+hexagon[0].get_x(),hexagon[k+1].get_y()+hexagon[0].get_y());
 }
 }
 
-void rotandscale(TImage* Image1, double par, int sw, char a, char b, MyPoint& V)
+void rotandscale(TImage* Image1, double par, int sw, MyPoint& V)
 {
 double r[3][3];
 // Выбор способа преобразования
@@ -123,7 +121,7 @@ double r[3][3];
  r[2][2]=1;
  break;
  }
-// Преобразование точки B
+// Преобразование точки V
 int v1[3]={V.get_x(),V.get_y(),1};
 int v2[3]={0, 0, 1};
 int i, j;
@@ -145,20 +143,116 @@ V.set_x(v2[0]);
 V.set_y(v2[1]);
 
 //Проверка на выход точки за холст
- if(B.get_x()<=0||B.get_y()<=0||A.get_x()<=0||A.get_y()<=0)
+/* if(B.get_x()<=0||B.get_y()<=0||A.get_x()<=0||A.get_y()<=0)
 {
 B.set_x();
 B.set_y();
 A.set_x();
 A.set_y();
 }
-
+  */
 }
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-doublr a_step=-10;
-rotandscale(Image1, a_step, int sw, char a, char b, MyPoint& V)
+rotandscale(Image1, -a_step, 0, (hexagon[1]));
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+
+rotandscale(Image1, a_step, 0, (hexagon[1]));
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+rotandscale(Image1, (double)1/sc_step, 1, (hexagon[1]));
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+rotandscale(Image1, sc_step, 1, (hexagon[1]));
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button5Click(TObject *Sender)
+{
+hexagon[0].set_x(hexagon[0].get_x()-mov_step);
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button6Click(TObject *Sender)
+{
+hexagon[0].set_x(hexagon[0].get_x()+mov_step);
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button7Click(TObject *Sender)
+{
+hexagon[0].set_y(hexagon[0].get_y()+mov_step);
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+
+printhexagon(hexagon, Image1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button8Click(TObject *Sender)
+{
+hexagon[0].set_y(hexagon[0].get_y()-mov_step);
+//??????? ??????
+TRect rct;
+rct = Rect(0,0,Image1->Width,Image1->Height);
+Image1->Canvas->Brush->Style=bsSolid;
+Image1->Canvas->FillRect(rct);
+
+printhexagon(hexagon, Image1);
 }
 //---------------------------------------------------------------------------
 
