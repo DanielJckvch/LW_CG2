@@ -94,7 +94,7 @@ hexagon[k].set_y(v2[1]);
 }
 //Отрисовка
 int off_x, off_y;
-for(k=1; k<7; k++)
+for(k=1; k<6; k++)
 {
 //Определение значения отступа для буквы
 off_x=(hexagon[k].get_x()<0)?-6:4;
@@ -105,6 +105,10 @@ Image1->Canvas->TextOutA(hexagon[k].get_x()+hexagon[0].get_x()+off_x,hexagon[k].
 Image1->Canvas->MoveTo(hexagon[k].get_x()+hexagon[0].get_x(),hexagon[k].get_y()+hexagon[0].get_y());
 Image1->Canvas->LineTo(hexagon[k+1].get_x()+hexagon[0].get_x(),hexagon[k+1].get_y()+hexagon[0].get_y());
 }
+Image1->Canvas->MoveTo(hexagon[k].get_x()+hexagon[0].get_x(),hexagon[k].get_y()+hexagon[0].get_y());
+Image1->Canvas->TextOutA(hexagon[k].get_x()+hexagon[0].get_x()+off_x,hexagon[k].get_y()+hexagon[0].get_y()+off_y,hexagon[k].get_let());
+Image1->Canvas->MoveTo(hexagon[k].get_x()+hexagon[0].get_x(),hexagon[k].get_y()+hexagon[0].get_y());
+Image1->Canvas->LineTo(hexagon[1].get_x()+hexagon[0].get_x(),hexagon[1].get_y()+hexagon[0].get_y());
 }
 
 void rotandscale(TImage* Image1, double par, int sw, MyPoint& V)
