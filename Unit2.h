@@ -5,6 +5,8 @@
 class MyPoint
 {
 private:
+char let;
+
 int x;
 int y;
 
@@ -15,12 +17,13 @@ public:
 
 int get_x();
 int get_y();
+char get_let();
 void set_x(int a);
 void set_y(int a);
 void set_x();
 void set_y();
 ~MyPoint();
-MyPoint(int i, int j);
+MyPoint(char l, int i, int j);
  MyPoint();
 } ;
 //---------------------------------------------------------------------------

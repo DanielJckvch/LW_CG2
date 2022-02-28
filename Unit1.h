@@ -13,7 +13,6 @@ class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
         TImage *Image1;
-        TLabeledEdit *LabeledEdit1;
         TButton *Button1;
         TButton *Button2;
         TButton *Button3;
@@ -23,8 +22,6 @@ __published:	// IDE-managed Components
         TButton *Button7;
         TButton *Button8;
         void __fastcall Form1Create(TObject *Sender);
-        void __fastcall Image1MouseMove(TObject *Sender, TShiftState Shift,
-          int X, int Y);
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall Button2Click(TObject *Sender);
         void __fastcall Button3Click(TObject *Sender);

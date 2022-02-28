@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 278
-  Top = 125
+  Left = 252
+  Top = 108
   Width = 928
   Height = 480
   Caption = 'Form1'
@@ -19,19 +19,6 @@ object Form1: TForm1
     Top = 0
     Width = 537
     Height = 441
-    OnMouseMove = Image1MouseMove
-  end
-  object LabeledEdit1: TLabeledEdit
-    Left = 672
-    Top = 128
-    Width = 121
-    Height = 21
-    EditLabel.Width = 62
-    EditLabel.Height = 13
-    EditLabel.Caption = 'LabeledEdit1'
-    LabelPosition = lpAbove
-    LabelSpacing = 3
-    TabOrder = 0
   end
   object Button1: TButton
     Left = 600
@@ -39,7 +26,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1055#1086#1074' '#1087#1088#1086#1090' '#1095#1072#1089
-    TabOrder = 1
+    TabOrder = 0
     OnClick = Button1Click
   end
   object Button2: TButton
@@ -48,7 +35,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1055#1086#1074#1086#1088' '#1087#1086' '#1095#1072#1089
-    TabOrder = 2
+    TabOrder = 1
     OnClick = Button2Click
   end
   object Button3: TButton
@@ -57,7 +44,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1052#1072#1089#1096#1090#1072#1073' -'
-    TabOrder = 3
+    TabOrder = 2
     OnClick = Button3Click
   end
   object Button4: TButton
@@ -66,7 +53,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1052#1072#1089#1096#1090#1072#1073' +'
-    TabOrder = 4
+    TabOrder = 3
     OnClick = Button4Click
   end
   object Button5: TButton
@@ -75,7 +62,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1042#1083#1077#1074#1086
-    TabOrder = 5
+    TabOrder = 4
     OnClick = Button5Click
   end
   object Button6: TButton
@@ -84,7 +71,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1042#1087#1088#1072#1074#1086
-    TabOrder = 6
+    TabOrder = 5
     OnClick = Button6Click
   end
   object Button7: TButton
@@ -93,7 +80,7 @@ object Form1: TForm1
     Width = 33
     Height = 73
     Caption = #1042#1085#1080#1079
-    TabOrder = 7
+    TabOrder = 6
     OnClick = Button7Click
   end
   object Button8: TButton
@@ -102,7 +89,7 @@ object Form1: TForm1
     Width = 33
     Height = 73
     Caption = #1042#1074#1077#1088#1093
-    TabOrder = 8
+    TabOrder = 7
     OnClick = Button8Click
   end
 end

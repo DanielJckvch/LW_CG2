@@ -9,8 +9,9 @@ MyPoint::MyPoint()
 x=0;
 y=0;
 }
-MyPoint::MyPoint(int i, int j)
+MyPoint::MyPoint(char l, int i, int j)
 {
+let=l;
 x=x0=i;
 y=y0=j;
 }
@@ -38,7 +39,12 @@ void MyPoint::set_y()
 {
 y=y0;
 }
- MyPoint:: ~MyPoint(){}//---------------------------------------------------------------------------
+ MyPoint:: ~MyPoint(){}
+ char MyPoint::get_let()
+ {
+ return let;
+ }
+ //---------------------------------------------------------------------------
 
 #pragma package(smart_init)
 
