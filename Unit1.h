@@ -14,9 +14,12 @@ class TForm1 : public TForm
 __published:	// IDE-managed Components
         TImage *Image1;
         TLabeledEdit *LabeledEdit1;
+        TButton *Button1;
+        TButton *Button2;
         void __fastcall Form1Create(TObject *Sender);
         void __fastcall Image1MouseMove(TObject *Sender, TShiftState Shift,
           int X, int Y);
+        void __fastcall Button1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

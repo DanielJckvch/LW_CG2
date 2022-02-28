@@ -12,6 +12,7 @@
 TForm1 *Form1;
 //Шестиугольник. Сделать вращение, масштабирование, перемещение
 void printhexagon(MyPoint* hexagon, TImage* Image1);
+void rotandscale(TImage* Image1, double par, int sw, char a, char b, MyPoint& V);
 MyPoint hexagon[7];
 int x=200;
 int y=200;
@@ -92,3 +93,72 @@ Image1->Canvas->MoveTo(hexagon[k].get_x(),hexagon[k].get_y());
 Image1->Canvas->LineTo(hexagon[k+1].get_x(),hexagon[k+1].get_y());
 }
 }
+
+void rotandscale(TImage* Image1, double par, int sw, char a, char b, MyPoint& V)
+{
+double r[3][3];
+// Выбор способа преобразования
+ switch(sw)
+ {
+ case 0:
+ r[0][0]=cos(par*3.14/180);
+ r[0][1]=sin(par*3.14/180);
+ r[0][2]=0;
+ r[1][0]=-sin(par*3.14/180);
+ r[1][1]=cos(par*3.14/180);
+ r[1][2]=0;
+ r[2][0]=0;
+ r[2][1]=0;
+ r[2][2]=1;
+ break;
+ case 1:
+ r[0][0]=par;
+ r[0][1]=0;
+ r[0][2]=0;
+ r[1][0]=0;
+ r[1][1]=par;
+ r[1][2]=0;
+ r[2][0]=0;
+ r[2][1]=0;
+ r[2][2]=1;
+ break;
+ }
+// Преобразование точки B
+int v1[3]={V.get_x(),V.get_y(),1};
+int v2[3]={0, 0, 1};
+int i, j;
+for (i = 0;i < 3;i++)
+{
+        double sum = 0;
+        for (j = 0;j < 3;j++)
+        {
+                sum= sum+ (r[j][i] * v1[j]);
+        }
+
+        v2[i] = sum;
+        if(v2[i]-sum>=0.5)
+        {
+        v2[i]++;
+        }
+}
+V.set_x(v2[0]);
+V.set_y(v2[1]);
+
+//Проверка на выход точки за холст
+ if(B.get_x()<=0||B.get_y()<=0||A.get_x()<=0||A.get_y()<=0)
+{
+B.set_x();
+B.set_y();
+A.set_x();
+A.set_y();
+}
+
+}
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+doublr a_step=-10;
+rotandscale(Image1, a_step, int sw, char a, char b, MyPoint& V)
+}
+//---------------------------------------------------------------------------
+
